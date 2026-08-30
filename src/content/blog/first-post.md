@@ -11,7 +11,7 @@ tags: ["Sentinel-1", "Python", "Radar"]
 
 ## Introduction
 
-Synthetic Aperture Radar (SAR) offers unprecedented monitoring capabilities. Unlike optical satellites, radar penetrates cloud cover and operates day or night.
+Synthetic Aperture Radar (SAR) offers unprecedented monitoring capabilities. Unlike  optical satellites, radar penetrates cloud cover and operates day or night.
 
 ### Processing Pipeline
 
