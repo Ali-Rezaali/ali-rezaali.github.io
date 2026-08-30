@@ -1,0 +1,115 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Fetch all posts and sort by date
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Main spotlight post vs remaining posts
+const featuredPost = sortedPosts.find(p => p.data.featured) || sortedPosts[0];
+const remainingPosts = sortedPosts.filter(p => p.id !== featuredPost?.id);
+---
+
+<BaseLayout title="Writing & Insights | Ali Rezaali">
+  <main class="max-w-6xl mx-auto px-4 py-10 space-y-12">
+    
+    <!-- HEADER -->
+    <header class="space-y-4 border-b border-slate-800 pb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>OPEN PERSPECTIVES & RESEARCH</span>
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight">
+        Field Notes & Advocacy
+      </h1>
+      <p class="text-slate-400 text-base sm:text-lg max-w-2xl leading-relaxed">
+        Writing on satellite remote sensing, open geospatial tools, data science, and systemic advocacy.
+      </p>
+    </header>
+
+    <!-- FEATURED ARTICLE -->
+    {featuredPost && (
+      <section class="relative group">
+        <a href={`/blog/${featuredPost.id}`} class="block">
+          <div class="relative w-full rounded-3xl border border-slate-800 bg-slate-900/60 hover:border-emerald-500/50 transition-all duration-300 overflow-hidden p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-7 space-y-4 z-10">
+              <div class="flex flex-wrap items-center gap-3 font-mono text-xs">
+                <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 font-semibold border border-emerald-500/30">
+                  ★ FEATURED POST
+                </span>
+                <span class="text-slate-400">•</span>
+                <span class="text-emerald-400 font-semibold uppercase">{featuredPost.data.category}</span>
+                <span class="text-slate-500">•</span>
+                <span class="text-slate-400">{featuredPost.data.readTime}</span>
+              </div>
+
+              <h2 class="text-2xl sm:text-4xl font-bold text-white group-hover:text-emerald-400 transition-colors leading-tight">
+                {featuredPost.data.title}
+              </h2>
+
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed line-clamp-3">
+                {featuredPost.data.description}
+              </p>
+
+              <div class="pt-2 flex items-center gap-4 text-xs font-mono text-slate-400">
+                <span>{new Date(featuredPost.data.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                <span class="text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">Read Article →</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 h-48 sm:h-64 lg:h-full w-full rounded-2xl overflow-hidden border border-slate-800 bg-black relative">
+              {featuredPost.data.image ? (
+                <img src={featuredPost.data.image} alt={featuredPost.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              ) : (
+                <div class="w-full h-full bg-gradient-to-br from-slate-900 via-slate-950 to-black flex items-center justify-center p-6 text-center">
+                  <span class="text-xs font-mono text-slate-600">[ GEOSPATIAL DATA VISUALIZATION ]</span>
+                </div>
+              )}
+            </div>
+
+          </div>
+        </a>
+      </section>
+    )}
+
+    <!-- REMAINING ARTICLES -->
+    <section class="space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+        <h3 class="text-xl font-bold text-white font-mono">ALL ARTICLES ({sortedPosts.length})</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {remainingPosts.map((post) => (
+          <article class="p-6 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between group">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between text-[11px] font-mono">
+                <span class="px-2.5 py-0.5 rounded bg-slate-800 text-emerald-400 border border-slate-700">
+                  {post.data.category}
+                </span>
+                <span class="text-slate-500">{post.data.readTime}</span>
+              </div>
+
+              <h4 class="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors leading-snug">
+                <a href={`/blog/${post.id}`}>
+                  {post.data.title}
+                </a>
+              </h4>
+
+              <p class="text-slate-400 text-xs leading-relaxed line-clamp-3">
+                {post.data.description}
+              </p>
+            </div>
+
+            <div class="pt-6 mt-4 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>{new Date(post.data.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+              <span class="text-emerald-400 group-hover:translate-x-1 transition-transform">Read →</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>

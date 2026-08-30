@@ -1,10 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import "tailwindcss";
 
-/* 1. Import fonts from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@custom-variant dark (&:where(.dark, .dark *));
 
-/* 2. Map them to Tailwind default font families */
 @theme {
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+
+  /* MASTER ACCENT (#81C433) */
+  --color-emerald-300: #9dd855;
+  --color-emerald-400: #81C433; /* Primary accent */
+  --color-emerald-500: #6fa82b; /* Buttons & active states */
+  --color-emerald-600: #5d8e23;
+
+  /* GLOBAL BACKGROUND & SURFACES */
+  --color-slate-950: #0a0a0a; /* Dark background */
+  --color-slate-900: #121212; /* Card surfaces */
+  
+  /* GLOBAL NON-GREEN TEXT, LINES & BORDERS (PURE NEUTRAL SHADES) */
+  --color-slate-800: #262626; /* Footer lines, dividers, card borders */
+  --color-slate-700: #404040; /* Subdued separators like "|" */
+  --color-slate-500: #737373; /* Muted telemetry, copyright labels */
+  --color-slate-400: #a3a3a3; /* Social icons, descriptions */
+  --color-slate-300: #d4d4d4; /* Body text & secondary headings */
+  --color-slate-200: #e5e5e5; /* Main text highlight */
+}
+
+/* Base Body Styles */
+body {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* AUTOMATIC LIGHT MODE OVERRIDES */
+html:not(.dark) body {
+  background-color: #f8fafc !important;
+  color: #171717 !important;
+}
+
+html:not(.dark) .bg-slate-900,
+html:not(.dark) .bg-slate-900\/60,
+html:not(.dark) .bg-slate-900\/80,
+html:not(.dark) .bg-slate-900\/90,
+html:not(.dark) .bg-slate-950 {
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) .bg-slate-800,
+html:not(.dark) .bg-slate-800\/80 {
+  background-color: #f5f5f5 !important;
+}
+
+html:not(.dark) .border-slate-800,
+html:not(.dark) .border-slate-800\/80 {
+  border-color: #e5e5e5 !important;
+}
+
+html:not(.dark) .text-white {
+  color: #0a0a0a !important;
+}
+
+html:not(.dark) .text-slate-300,
+html:not(.dark) .text-slate-400 {
+  color: #525252 !important;
 }
