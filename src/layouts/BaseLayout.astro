@@ -1,0 +1,30 @@
+---
+import '../styles/global.css';
+const { title = "GIS/RS Portfolio" } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-slate-950 text-slate-100 antialiased max-w-4xl mx-auto px-6 py-12 flex flex-col min-h-screen">
+    <header class="mb-12 flex justify-between items-center border-b border-slate-800 pb-4">
+      <a href="/" class="text-xl font-bold tracking-tight text-emerald-400">YourName.gis</a>
+      <nav class="space-x-6 text-sm">
+        <a href="/projects" class="hover:text-emerald-400 transition">Projects</a>
+        <a href="/papers" class="hover:text-emerald-400 transition">Papers</a>
+        <a href="/cv.pdf" target="_blank" class="hover:text-emerald-400 transition">CV (PDF)</a>
+      </nav>
+    </header>
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <footer class="mt-20 pt-6 border-t border-slate-800 text-xs text-slate-500">
+      © {new Date().getFullYear()} — Built with Astro & Tailwind
+    </footer>
+  </body>
+</html>
