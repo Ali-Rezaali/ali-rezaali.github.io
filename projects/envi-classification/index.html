@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" class="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>3D Point Cloud Classification: From Unsupervised Clustering to Supervised Learning | Projects</title><meta name="description" content="Geospatial researcher specializing in Earth Observation, GeoAI, and spatiotemporal modeling of environmental and urban hazard-risk."><!-- FAVICON RESTORED --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://ali-rezaali.github.io/projects/envi-classification/"><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;def09221f40d4d82ac5bffd3dfe8b779&quot;}"></script><!-- End Cloudflare Web Analytics --><!-- Theme Initialization (Prevents flicker) --><script>
+<!DOCTYPE html><html lang="en" class="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Remote Sensing Laboratory — From Pixel to Semantic Map | Projects</title><meta name="description" content="Geospatial researcher specializing in Earth Observation, GeoAI, and spatiotemporal modeling of environmental and urban hazard-risk."><!-- FAVICON RESTORED --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://ali-rezaali.github.io/projects/envi-classification/"><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;def09221f40d4d82ac5bffd3dfe8b779&quot;}"></script><!-- End Cloudflare Web Analytics --><!-- Theme Initialization (Prevents flicker) --><script>
       const theme = (() => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
@@ -15,343 +15,154 @@
         document.documentElement.classList.add('dark');
       }
       window.localStorage.setItem('theme', theme);
-    </script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CYDbzu1r.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.BA_Zzaqm.css"></head><body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-200 min-h-screen"><div aria-hidden="true" class="pointer-events-none fixed inset-0 z-0 text-slate-900 dark:text-slate-100 opacity-[0.045] dark:opacity-[0.055]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" class="w-full h-full"><g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M-60,50 C 180,10 380,90 660,55 S 1120,20 1500,70"></path><path d="M-60,120 C 160,160 400,80 680,130 S 1140,100 1500,150"></path><path d="M-60,190 C 200,230 420,160 700,210 S 1160,190 1500,230"></path><path d="M-60,260 C 220,290 440,230 720,270 S 1180,260 1500,290"></path><path d="M-60,325 C 180,355 380,295 660,335 S 1120,325 1500,355"></path><path d="M-60,395 C 200,425 400,365 680,405 S 1140,395 1500,425"></path><path d="M-60,460 C 220,490 420,430 700,470 S 1160,460 1500,490"></path><path d="M-60,530 C 200,560 400,500 680,540 S 1140,530 1500,560"></path><path d="M-60,595 C 180,625 380,565 660,605 S 1120,595 1500,625"></path><path d="M-60,665 C 200,695 400,635 680,675 S 1140,665 1500,695"></path><path d="M-60,730 C 220,760 420,700 700,740 S 1160,730 1500,760"></path><path d="M-60,800 C 180,830 380,770 660,810 S 1120,800 1500,830"></path><path d="M-60,865 C 200,895 400,835 680,875 S 1140,865 1500,895"></path><path d="M-60,930 C 180,960 380,900 660,940 S 1120,930 1500,960"></path></g></svg></div><div class="relative z-10 max-w-5xl mx-auto px-4 py-6"><!-- HEADER NAV --><header class="mb-12 border-b border-slate-200 dark:border-slate-800 pb-3"><div class="flex justify-between items-center"><!-- HEADER LOGO WITH SVG FILES (per-mode) --><a href="/" class="flex items-center gap-2.5 text-xl font-bold tracking-tight group shrink-0"><!-- Light mode logo — visible only when html is NOT .dark --><img src="/Logo%20-%20Light%20Mode.svg" alt="Ali Rezaali Logo" loading="lazy" decoding="async" class="h-[1.4em] w-auto block dark:hidden"><!-- Dark mode logo — visible only when html has .dark --><img src="/Logo%20-%20Dark%20Mode.svg" alt="Ali Rezaali Logo" loading="lazy" decoding="async" class="h-[1.4em] w-auto hidden dark:block"></a><!-- DESKTOP NAV --><nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300"><a href="/" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Home</a><a href="/projects" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Projects</a><a href="/publications" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Publications</a><a href="/blog" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Blog</a><a href="/cv.pdf" target="_blank" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">CV</a><a href="/about" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">About</a><a href="/contact" class="hover:text-emerald-400 transition-colors">Contact</a><!-- DAY / NIGHT TOGGLE BUTTON --><button type="button" data-theme-toggle aria-label="Toggle Theme" class="p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition cursor-pointer"><!-- Sun Icon (Visible in Dark Mode) --><svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg><!-- Moon Icon (Visible in Light Mode) --><svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg></button></nav><!-- MOBILE CONTROLS --><div class="flex md:hidden items-center gap-1"><!-- DAY / NIGHT TOGGLE BUTTON (mobile) --><button type="button" data-theme-toggle aria-label="Toggle Theme" class="p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 rounded-lg transition cursor-pointer"><svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg><svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg></button><!-- MOBILE MENU (native <details>) --><details class="mobile-menu relative"><summary class="list-none p-2 cursor-pointer text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 rounded-lg transition" aria-label="Open Menu"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></summary><nav class="absolute right-0 top-full mt-2 z-50 min-w-[200px] rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl p-2 flex flex-col gap-0.5"><a href="/" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Home</a><a href="/projects" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Projects</a><a href="/publications" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Publications</a><a href="/blog" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Blog</a><a href="/cv.pdf" target="_blank" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">CV</a><a href="/about" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">About</a><a href="/contact" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Contact</a></nav></details></div></div></header><!-- Page Content --><article class="max-w-4xl mx-auto px-4 py-12"><!-- BACK BUTTON --><a href="/projects" class="inline-flex items-center gap-2 font-mono text-xs text-emerald-600 dark:text-emerald-400 hover:underline mb-8">← BACK TO PROJECTS</a><!-- HERO HEADER --><header class="mb-8"><div class="flex items-center gap-2 font-mono text-xs text-slate-500 mb-3"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 font-semibold uppercase">Coursework &amp; Labs</span><span>•</span><time>2023-11-20</time></div><h1 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-slate-100 tracking-tight leading-tight">3D Point Cloud Classification: From Unsupervised Clustering to Supervised Learning</h1><p class="mt-4 text-lg text-slate-600 dark:text-slate-300 font-sans leading-relaxed">An end-to-end LiDAR pipeline comparing K-Means, BIRCH, Random Forest, and SVM — and quantifying how high-level feature engineering changes the outcome.</p><!-- TAG CLOUD --><div class="mt-4 flex flex-wrap gap-2"><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#LiDAR</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#Python</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#Open3D</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#Scikit-Learn</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#Random Forest</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#SVM</span></div></header><!-- MAIN FEATURED IMAGE --><div class="relative aspect-video w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 mb-10 shadow-2xl"><img src="/_astro/LiDAR%20Classification.ByQRm5DV_Z29JDsb.avif" srcset="/_astro/LiDAR%20Classification.ByQRm5DV_2oRVQT.avif 400w, /_astro/LiDAR%20Classification.ByQRm5DV_BxJnr.avif 800w, /_astro/LiDAR%20Classification.ByQRm5DV_Z29JDsb.avif 1148w" alt="3D Point Cloud Classification: From Unsupervised Clustering to Supervised Learning" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" loading="lazy" decoding="async" width="1148" height="723" class="w-full h-full object-cover"></div><!-- MARKDOWN CONTENT BODY --><div class="prose dark:prose-invert prose-emerald max-w-none font-sans"><h2 id="overview">Overview</h2>
-<p>Airborne LiDAR produces dense, high-resolution 3D point clouds that need to be segmented into semantic classes before they’re useful for anything — building extraction, ground modeling, urban tree inventory, change detection. The classification itself is the hard part. Point clouds carry no color, no labels, and no immediate semantic structure. Every class boundary has to be inferred from geometry and, when available, from the auxiliary channels that ship with the LAS file.</p>
-<p>This project walks through four classification strategies on the same dataset and quantifies how each one performs. The finding is straightforward: unsupervised clustering (K-Means, BIRCH) breaks down on point clouds because the classes aren’t separable in raw XYZ space, and the accuracy ceiling only moves once you engineer features that encode local surface structure — normal vectors, inclination angles, PCA components — and rebalance the training set.</p>
-<p>The work was completed as part of the Laser Scanners and Photogrammetry Laboratory at K.N. Toosi University of Technology, under Dr. Mohammadzadeh.</p>
-<h2 id="data--classes">Data &amp; Classes</h2>
-<p>The dataset is an airborne ALS point cloud (<code>nonground_training.las</code>) with four target classes:</p>
-<table>
-<thead>
-<tr>
-<th>Class ID</th>
-<th>Label</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Building (Gable Roof)</td>
-<td>Pitched-roof structures</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Tree / Vegetation</td>
-<td>Canopy and low shrubs</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Ground</td>
-<td>Bare earth, roads, flat terrain</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Building (Flat Roof)</td>
-<td>Flat-roofed structures</td>
-</tr>
-</tbody>
-</table>
-<p>Training samples for each class were digitized in <strong>Global Mapper</strong> using the <code>Select by Drawing Polygon</code> tool, exported back out as separate LAS files (one per class), and re-imported into Python for labeling. The sample counts across classes are roughly balanced by design — an imbalanced training set biases the classifier toward the dominant class, and the goal here was to isolate the effect of algorithm choice, not class distribution.</p>
-<h2 id="reading-and-visualizing-the-point-cloud">Reading and Visualizing the Point Cloud</h2>
-<p>The pipeline starts with a standard reading-and-display step. <code>laspy</code> reads the LAS file, the X/Y/Z channels are stacked into a NumPy array, and <code>Open3D</code> renders the result.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> numpy </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> np</span></span>
-<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> laspy</span></span>
-<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> open3d </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> o3d</span></span>
-<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> os</span></span>
+    </script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CYDbzu1r.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.BE0NiwQO.css"></head><body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-200 min-h-screen"><div aria-hidden="true" class="pointer-events-none fixed inset-0 z-0 text-slate-900 dark:text-slate-100 opacity-[0.045] dark:opacity-[0.055]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" class="w-full h-full"><g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M-60,50 C 180,10 380,90 660,55 S 1120,20 1500,70"></path><path d="M-60,120 C 160,160 400,80 680,130 S 1140,100 1500,150"></path><path d="M-60,190 C 200,230 420,160 700,210 S 1160,190 1500,230"></path><path d="M-60,260 C 220,290 440,230 720,270 S 1180,260 1500,290"></path><path d="M-60,325 C 180,355 380,295 660,335 S 1120,325 1500,355"></path><path d="M-60,395 C 200,425 400,365 680,405 S 1140,395 1500,425"></path><path d="M-60,460 C 220,490 420,430 700,470 S 1160,460 1500,490"></path><path d="M-60,530 C 200,560 400,500 680,540 S 1140,530 1500,560"></path><path d="M-60,595 C 180,625 380,565 660,605 S 1120,595 1500,625"></path><path d="M-60,665 C 200,695 400,635 680,675 S 1140,665 1500,695"></path><path d="M-60,730 C 220,760 420,700 700,740 S 1160,730 1500,760"></path><path d="M-60,800 C 180,830 380,770 660,810 S 1120,800 1500,830"></path><path d="M-60,865 C 200,895 400,835 680,875 S 1140,865 1500,895"></path><path d="M-60,930 C 180,960 380,900 660,940 S 1120,930 1500,960"></path></g></svg></div><div class="relative z-10 max-w-5xl mx-auto px-4 py-6"><!-- HEADER NAV --><header class="mb-12 border-b border-slate-200 dark:border-slate-800 pb-3"><div class="flex justify-between items-center"><!-- HEADER LOGO WITH SVG FILES (per-mode) --><a href="/" class="flex items-center gap-2.5 text-xl font-bold tracking-tight group shrink-0"><!-- Light mode logo — visible only when html is NOT .dark --><img src="/Logo%20-%20Light%20Mode.svg" alt="Ali Rezaali Logo" loading="lazy" decoding="async" class="h-[1.4em] w-auto block dark:hidden"><!-- Dark mode logo — visible only when html has .dark --><img src="/Logo%20-%20Dark%20Mode.svg" alt="Ali Rezaali Logo" loading="lazy" decoding="async" class="h-[1.4em] w-auto hidden dark:block"></a><!-- DESKTOP NAV --><nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300"><a href="/" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Home</a><a href="/projects" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Projects</a><a href="/publications" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Publications</a><a href="/blog" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Blog</a><a href="/cv.pdf" target="_blank" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">CV</a><a href="/about" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">About</a><a href="/contact" class="hover:text-emerald-400 transition-colors">Contact</a><!-- DAY / NIGHT TOGGLE BUTTON --><button type="button" data-theme-toggle aria-label="Toggle Theme" class="p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition cursor-pointer"><!-- Sun Icon (Visible in Dark Mode) --><svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg><!-- Moon Icon (Visible in Light Mode) --><svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg></button></nav><!-- MOBILE CONTROLS --><div class="flex md:hidden items-center gap-1"><!-- DAY / NIGHT TOGGLE BUTTON (mobile) --><button type="button" data-theme-toggle aria-label="Toggle Theme" class="p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 rounded-lg transition cursor-pointer"><svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg><svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg></button><!-- MOBILE MENU (native <details>) --><details class="mobile-menu relative"><summary class="list-none p-2 cursor-pointer text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 rounded-lg transition" aria-label="Open Menu"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></summary><nav class="absolute right-0 top-full mt-2 z-50 min-w-[200px] rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl p-2 flex flex-col gap-0.5"><a href="/" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Home</a><a href="/projects" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Projects</a><a href="/publications" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Publications</a><a href="/blog" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Blog</a><a href="/cv.pdf" target="_blank" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">CV</a><a href="/about" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">About</a><a href="/contact" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Contact</a></nav></details></div></div></header><!-- Page Content --><article class="max-w-4xl mx-auto px-4 py-12"><!-- BACK BUTTON --><a href="/projects" class="inline-flex items-center gap-2 font-mono text-xs text-emerald-600 dark:text-emerald-400 hover:underline mb-8">← BACK TO PROJECTS</a><!-- HERO HEADER --><header class="mb-8"><div class="flex items-center gap-2 font-mono text-xs text-slate-500 mb-3"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 font-semibold uppercase">Coursework &amp; Labs</span><span>•</span><time>2023-06-27</time></div><h1 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-slate-100 tracking-tight leading-tight">Remote Sensing Laboratory — From Pixel to Semantic Map</h1><p class="mt-4 text-lg text-slate-600 dark:text-slate-300 font-sans leading-relaxed">Eight end-to-end exercises spanning Python image processing, Landsat 8 metadata analysis, radiometric correction, supervised classification, water extraction, and Split-Window sea surface temperature retrieval.</p><!-- TAG CLOUD --><div class="mt-4 flex flex-wrap gap-2"><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#Remote Sensing</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#ENVI</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#Python</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#Landsat 8</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#Classification</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#SST</span></div></header><!-- MAIN FEATURED IMAGE --><div class="relative aspect-video w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 mb-10 shadow-2xl"><img src="/_astro/Remote%20Sensing%20Lab%20%E2%80%94%20Classification%20Results.kvYTTw0z_etIG2.avif" srcset="/_astro/Remote%20Sensing%20Lab%20%E2%80%94%20Classification%20Results.kvYTTw0z_akFt9.avif 400w, /_astro/Remote%20Sensing%20Lab%20%E2%80%94%20Classification%20Results.kvYTTw0z_Z1qgOMz.avif 800w, /_astro/Remote%20Sensing%20Lab%20%E2%80%94%20Classification%20Results.kvYTTw0z_etIG2.avif 1058w" alt="Remote Sensing Laboratory — From Pixel to Semantic Map" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" loading="lazy" decoding="async" width="1058" height="903" class="w-full h-full object-cover"></div><!-- MARKDOWN CONTENT BODY --><div class="prose dark:prose-invert prose-emerald max-w-none font-sans"><h2 id="overview">Overview</h2>
+<p>A full-semester laboratory course at K. N. Toosi University of Technology’s Faculty of Geodesy and Geomatics Engineering, covering the applied side of remote sensing — the parts that don’t fit into lecture slides. How raw DN values become calibrated radiance. How a header file is actually organized. How atmospheric correction algorithms differ in practice. How the choice of classifier changes the map you produce.</p>
+<p>Eight exercises, each building on the last. The thread tying them together is <em>transformation</em>: data moves from instrument to calibration to correction to classification to a usable geographic product, and every step has a decision that materially changes the result.</p>
+<h2 id="01--histogram-equalization-from-scratch">01 — Histogram Equalization from Scratch</h2>
+<p>The first exercise was to implement histogram equalization without <code>cv2.equalizeHist</code> — write it from the histogram, the CDF, and the interpolation.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> cv2</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> numpy </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> np</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">os.chdir(</span><span style="color:#F97583">r</span><span style="color:#9ECBFF">'</span><span style="color:#DBEDFF">C:</span><span style="color:#85E89D;font-weight:bold">\U</span><span style="color:#DBEDFF">sers</span><span style="color:#85E89D;font-weight:bold">\U</span><span style="color:#DBEDFF">SER</span><span style="color:#79B8FF">\D</span><span style="color:#DBEDFF">esktop</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#E1E4E8">las </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> laspy.read(</span><span style="color:#9ECBFF">'nonground_training.las'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">img </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> cv2.imread(</span><span style="color:#9ECBFF">'input.jpg'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">)</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D"># LAS → NumPy array</span></span>
-<span class="line"><span style="color:#E1E4E8">pc </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> np.vstack([las.X, las.Y, las.Z]).transpose()</span></span>
+<span class="line"><span style="color:#6A737D"># Histogram + CDF</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Open3D visualization</span></span>
-<span class="line"><span style="color:#79B8FF">PCD</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> o3d.geometry.PointCloud()</span></span>
-<span class="line"><span style="color:#79B8FF">PCD</span><span style="color:#E1E4E8">.points </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> o3d.utility.Vector3dVector(pc)</span></span>
-<span class="line"><span style="color:#E1E4E8">o3d.visualization.draw_geometries([</span><span style="color:#79B8FF">PCD</span><span style="color:#E1E4E8">])</span></span></code></pre>
-<p>Normal vectors are estimated for every point using a KD-tree search with a 0.1 radius and 30 nearest neighbors. The normal vector at each point describes the local surface orientation, which is the single most informative low-level feature for separating roofs, vegetation, and ground.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#79B8FF">PCD</span><span style="color:#E1E4E8">.estimate_normals(</span></span>
-<span class="line"><span style="color:#FFAB70">    search_param</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">o3d.geometry.KDTreeSearchParamHybrid(</span><span style="color:#FFAB70">radius</span><span style="color:#F97583">=</span><span style="color:#79B8FF">0.1</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">max_nn</span><span style="color:#F97583">=</span><span style="color:#79B8FF">30</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#E1E4E8">o3d.visualization.draw_geometries([</span><span style="color:#79B8FF">PCD</span><span style="color:#E1E4E8">], </span><span style="color:#FFAB70">point_show_normal</span><span style="color:#F97583">=</span><span style="color:#79B8FF">True</span><span style="color:#E1E4E8">)</span></span></code></pre>
-<h2 id="unsupervised-classification--k-means-and-birch">Unsupervised Classification — K-Means and BIRCH</h2>
-<p>The first two experiments apply unsupervised clustering directly to the raw features. No labels, no training set — just the geometry, and see how well the clusters line up with the four target classes.</p>
-<p>Features used: <code>Z</code> (elevation) plus the <code>Green</code>-<code>Blue</code> ratio index, scaled to <code>[0, 1]</code> with <code>MinMaxScaler</code>.</p>
-<p><strong>K-Means</strong> with <code>n_clusters=4</code>, <code>max_iter=800</code>:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> sklearn.cluster </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> KMeans</span></span>
+<span class="line"><span style="color:#E1E4E8">hist, bins </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> np.histogram(img.flatten(), </span><span style="color:#79B8FF">256</span><span style="color:#E1E4E8">, [</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">256</span><span style="color:#E1E4E8">])</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">clustering </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> KMeans(</span><span style="color:#FFAB70">n_clusters</span><span style="color:#F97583">=</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">max_iter</span><span style="color:#F97583">=</span><span style="color:#79B8FF">800</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">random_state</span><span style="color:#F97583">=</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">).fit(features)</span></span>
-<span class="line"><span style="color:#E1E4E8">clustered </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> clustering.labels_</span></span>
+<span class="line"><span style="color:#E1E4E8">cdf </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> hist.cumsum()</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">ClusteredPC </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> np.vstack([las.X, las.Y, clustered]).transpose()</span></span>
-<span class="line"><span style="color:#E1E4E8">geom </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> o3d.geometry.PointCloud()</span></span>
-<span class="line"><span style="color:#E1E4E8">geom.points </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> o3d.utility.Vector3dVector(ClusteredPC)</span></span>
-<span class="line"><span style="color:#E1E4E8">o3d.visualization.draw_geometries([geom])</span></span></code></pre>
-<p><strong>BIRCH</strong> with <code>threshold=0.1</code>, <code>n_clusters=4</code>:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> sklearn.cluster </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> Birch</span></span>
+<span class="line"><span style="color:#E1E4E8">cdf_normalized </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 255</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> cdf </span><span style="color:#F97583">/</span><span style="color:#E1E4E8"> cdf[</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">clustering </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Birch(</span><span style="color:#FFAB70">threshold</span><span style="color:#F97583">=</span><span style="color:#79B8FF">0.1</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">n_clusters</span><span style="color:#F97583">=</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">).fit(features)</span></span>
-<span class="line"><span style="color:#E1E4E8">clustered </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> clustering.labels_</span></span></code></pre>
-<h3 id="visual-results">Visual Results</h3>
-<p>Neither algorithm produces a usable segmentation. The failure modes are consistent across both:</p>
-<ul>
-<li><strong>Vegetation and gable roofs are merged.</strong> Both are elevated relative to ground, and the raw <code>Z</code> feature cannot distinguish the sloped surface of a roof from the irregular canopy of a tree.</li>
-<li><strong>Flat roofs and ground are partially confused</strong> in BIRCH, where the low-elevation clusters blend at the boundaries.</li>
-<li><strong>Gable roofs are essentially not segmented at all.</strong> Only the top few vertices of pitched roofs end up in the “tall” cluster, which mostly absorbs vegetation.</li>
-<li><strong>K-Means splits vegetation across three of the four clusters</strong>, which means the clusters do not correspond to semantic classes at all.</li>
-</ul>
-<p>BIRCH performs worse than K-Means on every class — a known behavior when the cluster shapes are non-spherical, which is exactly the case for canopy points.</p>
-<p>The conclusion from this stage is that clustering in raw <code>(X, Y, Z)</code> space cannot separate LiDAR classes. The geometric separation that distinguishes a pitched roof from a tree canopy lives in the <em>local</em> surface structure, not in the elevation of any individual point. That motivates the supervised experiments.</p>
-<h2 id="supervised-classification--random-forest-and-svm">Supervised Classification — Random Forest and SVM</h2>
-<p>Supervised methods add labels and require a training set. The same low-level features (<code>Z</code>, plus the Green/Blue index) are used again, and 70% of the labeled points go to training, 30% to testing.</p>
-<h3 id="random-forest">Random Forest</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> sklearn.ensemble </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> RandomForestClassifier</span></span>
+<span class="line"><span style="color:#6A737D"># Map original pixels via interpolated CDF</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">clf </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> RandomForestClassifier(</span><span style="color:#FFAB70">n_estimators</span><span style="color:#F97583">=</span><span style="color:#79B8FF">800</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">max_depth</span><span style="color:#F97583">=</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">random_state</span><span style="color:#F97583">=</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#E1E4E8">clf.fit(xTrain, yTrain)</span></span>
-<span class="line"><span style="color:#E1E4E8">predTest </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> clf.predict(xTest)</span></span>
-<span class="line"><span style="color:#E1E4E8">pred_total </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> clf.predict(features)</span></span></code></pre>
-<h3 id="svm">SVM</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> sklearn </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> svm</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">clf_svm </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> svm.SVC()</span></span>
-<span class="line"><span style="color:#E1E4E8">clf_svm.fit(xTrain, yTrain)</span></span>
-<span class="line"><span style="color:#E1E4E8">pred_test_svm </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> clf_svm.predict(xTest)</span></span></code></pre>
-<h3 id="confusion-matrices">Confusion Matrices</h3>
-<p><strong>Random Forest — low-level features only (accuracy 0.82)</strong></p>
-<table>
-<thead>
-<tr>
-<th>Class</th>
-<th>Precision</th>
-<th>Recall</th>
-<th>F1</th>
-<th>Support</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Building Gable Roof</td>
-<td>0.60</td>
-<td>0.98</td>
-<td>0.74</td>
-<td>5,987</td>
-</tr>
-<tr>
-<td>Tree</td>
-<td>1.00</td>
-<td>0.30</td>
-<td>0.47</td>
-<td>5,882</td>
-</tr>
-<tr>
-<td>Ground</td>
-<td>0.98</td>
-<td>1.00</td>
-<td>0.99</td>
-<td>5,917</td>
-</tr>
-<tr>
-<td>Building Flat Roof</td>
-<td>0.97</td>
-<td>1.00</td>
-<td>0.99</td>
-<td>5,943</td>
-</tr>
-<tr>
-<td><strong>Macro Avg</strong></td>
-<td><strong>0.89</strong></td>
-<td><strong>0.82</strong></td>
-<td><strong>0.80</strong></td>
-<td>23,729</td>
-</tr>
-</tbody>
-</table>
-<p><strong>SVM — low-level features only (accuracy 0.77)</strong></p>
-<table>
-<thead>
-<tr>
-<th>Class</th>
-<th>Precision</th>
-<th>Recall</th>
-<th>F1</th>
-<th>Support</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Building Gable Roof</td>
-<td>0.60</td>
-<td>0.70</td>
-<td>0.65</td>
-<td>5,934</td>
-</tr>
-<tr>
-<td>Tree</td>
-<td>0.88</td>
-<td>0.38</td>
-<td>0.53</td>
-<td>6,008</td>
-</tr>
-<tr>
-<td>Ground</td>
-<td>0.98</td>
-<td>1.00</td>
-<td>0.99</td>
-<td>5,976</td>
-</tr>
-<tr>
-<td>Building Flat Roof</td>
-<td>0.71</td>
-<td>1.00</td>
-<td>0.83</td>
-<td>5,811</td>
-</tr>
-<tr>
-<td><strong>Macro Avg</strong></td>
-<td><strong>0.79</strong></td>
-<td><strong>0.77</strong></td>
-<td><strong>0.75</strong></td>
-<td>23,729</td>
-</tr>
-</tbody>
-</table>
-<h3 id="interpretation">Interpretation</h3>
-<p>Two things stand out.</p>
-<p><strong>Vegetation is the weakest class in both models.</strong> RF gets precision 1.00 but recall 0.30 — it only catches a third of the actual tree points, and when it does label something a tree, it’s always right. The model is over-cautious on this class because tree points scatter across a wide range of elevations, and the training samples overlap the roof-elevation band. SVM behaves the opposite way: recall 0.38, precision 0.88 — it throws away trees even more aggressively.</p>
-<p><strong>Gable roofs and flat roofs are confused with each other in SVM.</strong> This is a known limitation of a linear kernel in <code>(Z, Green/Blue)</code> space: both classes sit at similar elevations, and the only thing separating them is the local surface orientation — which neither feature captures.</p>
-<p>The single most informative feature, the normal vector estimated earlier, is not yet in the feature set. That’s the whole point of the bonus section.</p>
-<h2 id="feature-engineering--high-level-features--smote">Feature Engineering — High-Level Features + SMOTE</h2>
-<p>The bonus section adds two feature families on top of the low-level set and rebalances the training distribution.</p>
-<h3 id="inclination-angle">Inclination Angle</h3>
-<p>The angle between the local surface normal and the horizontal plane. For a flat roof it’s near zero; for a pitched roof it’s in the range of the roof pitch; for vegetation it’s scattered across all angles because canopy points have no consistent normal direction.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#E1E4E8">inclination_angle </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> np.arctan2(</span></span>
-<span class="line"><span style="color:#E1E4E8">    pc[:, </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">],</span></span>
-<span class="line"><span style="color:#E1E4E8">    np.sqrt(pc[:, </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">**</span><span style="color:#79B8FF">2</span><span style="color:#F97583"> +</span><span style="color:#E1E4E8"> pc[:, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">**</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#E1E4E8">)</span></span></code></pre>
-<h3 id="pca-components">PCA Components</h3>
-<p>Principal Component Analysis is applied to the point cloud coordinates, and the top three components are added as features. PCA captures the dominant axes of variation in the local neighborhood — essentially a compressed summary of the surface geometry that is invariant to rotation about the vertical axis.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> sklearn.decomposition </span><span style="color:#F97583">import</span><span style="color:#79B8FF"> PCA</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">pca </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> PCA(</span><span style="color:#FFAB70">n_components</span><span style="color:#F97583">=</span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#E1E4E8">pc_pca </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> pca.fit_transform(pc)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">features </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> np.hstack([</span></span>
-<span class="line"><span style="color:#E1E4E8">    las.Z.reshape(</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">),</span></span>
-<span class="line"><span style="color:#E1E4E8">    inclination_angle.reshape(</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">),</span></span>
-<span class="line"><span style="color:#E1E4E8">    pc_pca,</span></span>
-<span class="line"><span style="color:#E1E4E8">])</span></span></code></pre>
-<h3 id="smote-for-class-balance">SMOTE for Class Balance</h3>
-<p>Synthetic Minority Over-sampling Technique generates synthetic training examples for underrepresented classes by interpolating between real neighbors in feature space. Applied before the train/test split so the rebalanced distribution is what the model actually sees.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> imblearn.over_sampling </span><span style="color:#F97583">import</span><span style="color:#79B8FF"> SMOTE</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">smote </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> SMOTE(</span><span style="color:#FFAB70">random_state</span><span style="color:#F97583">=</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#E1E4E8">x_resampled, y_resampled </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> smote.fit_resample(x, y)</span></span></code></pre>
-<h3 id="confusion-matrix--rf--inclination--pca--smote-accuracy-092">Confusion Matrix — RF + Inclination + PCA + SMOTE (accuracy 0.92)</h3>
-<table>
-<thead>
-<tr>
-<th>Class</th>
-<th>Precision</th>
-<th>Recall</th>
-<th>F1</th>
-<th>Support</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Building Gable Roof</td>
-<td>0.77</td>
-<td>0.99</td>
-<td>0.87</td>
-<td>5,944</td>
-</tr>
-<tr>
-<td>Tree</td>
-<td>1.00</td>
-<td>0.69</td>
-<td>0.82</td>
-<td>5,911</td>
-</tr>
-<tr>
-<td>Ground</td>
-<td>0.98</td>
-<td>1.00</td>
-<td>0.99</td>
-<td>5,949</td>
-</tr>
-<tr>
-<td>Building Flat Roof</td>
-<td>1.00</td>
-<td>1.00</td>
-<td>1.00</td>
-<td>5,925</td>
-</tr>
-<tr>
-<td><strong>Macro Avg</strong></td>
-<td><strong>0.94</strong></td>
-<td><strong>0.92</strong></td>
-<td><strong>0.92</strong></td>
-<td>23,729</td>
-</tr>
-</tbody>
-</table>
-<h2 id="results-summary">Results Summary</h2>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Features</th>
-<th>Accuracy</th>
-<th>Best-class F1</th>
-<th>Worst-class F1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>K-Means</td>
-<td>Z + GB index</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>BIRCH</td>
-<td>Z + GB index</td>
-<td>—</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>SVM</td>
-<td>Z + GB index</td>
-<td>0.77</td>
-<td>0.99 (Ground)</td>
-<td>0.53 (Tree)</td>
-</tr>
-<tr>
-<td>Random Forest</td>
-<td>Z + GB index</td>
-<td>0.82</td>
-<td>0.99 (Ground)</td>
-<td>0.47 (Tree)</td>
-</tr>
-<tr>
-<td><strong>Random Forest</strong></td>
-<td><strong>+ Inclination + PCA + SMOTE</strong></td>
-<td><strong>0.92</strong></td>
-<td><strong>1.00 (Flat Roof)</strong></td>
-<td><strong>0.82 (Tree)</strong></td>
-</tr>
-</tbody>
-</table>
-<p>The jump from 0.82 to 0.92 is entirely attributable to feature engineering and class rebalancing — the classifier itself is the same Random Forest in both cases. The tree class F1 moves from 0.47 to 0.82, which is the single biggest improvement in the pipeline.</p>
-<h2 id="takeaways">Takeaways</h2>
-<p>Unsupervised clustering is the wrong tool for this problem. Elevation alone cannot separate a pitched roof from a tree canopy, and clustering algorithms that optimize for Euclidean proximity will always merge them. The failure isn’t a tuning problem — it’s that the raw features carry no information about surface orientation.</p>
-<p>Supervised methods fix the labels problem but inherit the same feature limitation. RF with <code>(Z, GB)</code> tops out at 0.82. SVM is worse because it can’t model the non-linear decision boundary between gable roofs and flat roofs in a two-dimensional feature space.</p>
-<p>Feature engineering is where the accuracy actually lives. Adding an inclination angle and three PCA components gives the classifier direct access to local surface orientation, which is the signal that separates the four classes. SMOTE then ensures the classifier doesn’t drift toward the majority class during training.</p>
-<p>The pipeline is not tuned for the specific dataset — the same feature set, the same scaling, and the same RF configuration will run on any airborne LiDAR tile with similar class definitions. The two steps that matter most for reproducibility are the normal-vector estimation and the inclination-angle calculation, both of which depend on a consistent neighborhood search radius.</p>
+<span class="line"><span style="color:#E1E4E8">equalized </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> np.interp(img.flatten(), bins[:</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">], cdf_normalized).reshape(img.shape)</span></span></code></pre>
+<p>The point isn’t the transformation itself — it’s that every line of it is visible. The CDF is the mapping function; the
+interpolation just smooths the transition between histogram bins. Once you see that, equalizeHist stops being a black box.</p>
+<p>The input was a low-contrast photo. After equalization, the histogram flattens out and the visual contrast range expands to fill the full 8-bit space.</p>
+<p>02 — Smoothing Filters with Custom Kernels
+The second exercise built three smoothing filters from raw kernel definitions — no cv2.GaussianBlur, no cv2.blur. Just a convolution loop.</p>
+<p>Three kernels:</p>
+<p>Gaussian 5×5 — weighted by distance from center, ideal for removing Gaussian noise</p>
+<p>Weighted Mean 5×5 — same numbers, but interpreted as a linear weighting rather than a Gaussian falloff</p>
+<p>Mean 7×7 — flat 1/49 weights, the simplest possible smoother</p>
+<p>The apply_filter function pads the image with a border of kernel_size // 2 zeros, then walks every pixel and replaces it with the sum of the kernel-times-neighborhood.</p>
+<p>python
+def apply_filter(image, kernel):
+pad = kernel.shape[0] // 2
+h, w = image.shape
+padded = np.zeros((h + 2<em>pad, w + 2</em>pad), dtype=image.dtype)
+padded[pad:h+pad, pad:w+pad] = image</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>out = np.zeros_like(image, dtype=np.float32)</span></span>
+<span class="line"><span>for i in range(pad, h + pad):</span></span>
+<span class="line"><span>    for j in range(pad, w + pad):</span></span>
+<span class="line"><span>        out[i-pad, j-pad] = np.sum(</span></span>
+<span class="line"><span>            kernel * padded[i-pad:i+pad+1, j-pad:j+pad+1]</span></span>
+<span class="line"><span>        )</span></span>
+<span class="line"><span>return out</span></span></code></pre>
+<p>The Gaussian kernel produced the smoothest output but also the softest edges. The mean filter is faster but blurs across edges. The weighted mean was the compromise — most of the noise suppressed, most of the edges preserved.</p>
+<p>03 — Landsat 8 Metadata Anatomy
+The header (MTL) file is where all the calibration constants live. This exercise went through every group in the file:</p>
+<p>METADATA_FILE_INFO — origin, DOI, data type per band</p>
+<p>PRODUCT_METADATA — scene ID decoded (path, row, date, processing level)</p>
+<p>IMAGE_ATTRIBUTES — cloud cover, sun angles, saturation flags</p>
+<p>PROJECTION_PARAMETERS — UTM zone, datum, grid cell sizes per band group</p>
+<p>LEVEL1_RADIOMETRIC_RESCALING — the important one. This is where the gain and offset constants live that turn raw DN into radiance and reflectance.</p>
+<p>The product ID format is worth memorizing:</p>
+<p>text
+LXSS_LLLL_PPPRRR_YYYYMMDD_yyyymmdd_CC_TX
+So LC08_L1TP_165035_20220916_20220922_02_T1 means Landsat 8, Level-1 Terrain Precision, WRS path 165 row 35, imaged 2022-09-16, processed 2022-09-22, Collection 2 Tier 1.</p>
+<p>Every downstream correction — FLAASH, Flat Field, Log Residuals — pulls its constants from this file. Get the header wrong, every step after is wrong.</p>
+<p>04 — Cirrus and Quality Assessment Bands
+Band 9 is the odd one out on Landsat 8. Its spectral range (1.363–1.384 μm) is inside a strong water vapor absorption band, which means almost all solar radiation in that range is absorbed before it reaches the ground. On a clear day, the ground is nearly black in Band 9. But high-altitude cirrus clouds reflect before most of the atmosphere is traversed, so they show up bright.</p>
+<p>That’s the design: Band 9 is a cirrus detector.</p>
+<p>The Quality Assessment (QA) band is the pixel-level metadata companion. Each 16-bit QA value is packed with flags — cloud confidence, cirrus confidence, snow/ice, water, terrain occlusion — laid out across specific bit positions. The lower two bits are boolean (fill, dilated cloud, cirrus, cloud), the upper bits are two-bit confidence levels (0 = none, 1 = low, 2 = medium, 3 = high).</p>
+<p>Reading them requires bitwise operations, not visual inspection. It’s a decoder ring rather than a picture.</p>
+<p>05 — Drop-Line Correction and RMSE Benchmarking
+Drop lines are what happens when a detector on a pushbroom sensor fails mid-scene. The output is a stripe of zero-valued pixels running the full column length. There’s no recoverable signal in those pixels — the only option is interpolation from neighbors.</p>
+<p>This exercise did the full loop:</p>
+<p>Injected drop lines artificially into a clean Landsat 8 scene (20 lines, chosen randomly across the image) using rasterio</p>
+<p>Corrected them with ENVI Classic’s Replace Bad Lines tool at three different half-width settings</p>
+<p>Benchmarked the correction quality with RMSE</p>
+<p>python
+import rasterio
+import numpy as np
+from sklearn.metrics import mean_squared_error</p>
+<p>with rasterio.open(‘reference.tif’) as ref:
+ref_line = ref.read(2)[3, :]</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>for i in range(1, 4):</span></span>
+<span class="line"><span>    with rasterio.open(f'BadLinesHalfWidth{i}.tif') as src:</span></span>
+<span class="line"><span>        line = src.read(2)[3, :]</span></span>
+<span class="line"><span>        rmse = np.sqrt(mean_squared_error(ref_line, line))</span></span>
+<span class="line"><span>        print(f'RMSEHalfWidth{i}: {rmse}')</span></span></code></pre>
+<p>Results:</p>
+<p>Half-Width	RMSE
+1	3.29
+2	4.27
+3	4.80
+The tighter the interpolation window, the better the recovery. Wider windows include more neighboring lines, which pulls in pixels from different surface types and blurs the recovered signal. Half-width 1 wins.</p>
+<p>06 — Supervised Classification Across Four Corrections
+The largest single exercise. Same scene, same training data, same two classifiers — but four different atmospheric corrections applied first, and a full accuracy comparison across all combinations.</p>
+<p>The four corrections:</p>
+<p>Dark Object Subtraction — subtract the scene’s minimum pixel value (assumed to be atmospheric scattering)</p>
+<p>FLAASH — full radiative transfer model, the industry standard</p>
+<p>Flat Field — normalize to a known flat-reflectance region</p>
+<p>Log Residuals — remove illumination, topographic, and gain effects via a log transform</p>
+<p>The two classifiers:</p>
+<p>Minimum Distance — non-parametric, assign each pixel to the nearest class mean</p>
+<p>Maximum Likelihood — parametric, assumes Gaussian distribution per class and picks the most probable</p>
+<p>Then a confusion matrix for each combination, computing Overall Accuracy and Kappa coefficient.</p>
+<p>The winner:</p>
+<p>Correction	Classifier	OA	Kappa
+Dark Subtract	Minimum Distance	90.36%	0.880
+Dark Subtract	Maximum Likelihood	88.54%	0.857
+Flat Field	Minimum Distance	92.18%	0.902
+Flat Field	Maximum Likelihood	88.54%	0.857
+Log Residuals	Minimum Distance	91.14%	0.889
+Log Residuals	Maximum Likelihood	88.51%	0.856
+FLAASH	Minimum Distance	92.22%	0.903
+FLAASH	Maximum Likelihood	88.62%	0.858
+Two findings:</p>
+<p>FLAASH + Minimum Distance wins overall. The full atmospheric model plus the non-parametric classifier beats every other combination.</p>
+<p>Minimum Distance beats Maximum Likelihood on every correction. Counter-intuitive — ML is theoretically more powerful — but Maximum Likelihood is sensitive to the Gaussian assumption, and the training samples here don’t satisfy it cleanly. Minimum Distance doesn’t care about distribution shape.</p>
+<p>This is the exercise that best captures the point of the whole lab: the combination of correction and classifier matters more than the choice of either alone.</p>
+<p>07 — Water Extraction with NDWI/NDVI Decision Trees
+Water extraction from multispectral imagery, using spectral indices and decision trees.</p>
+<p>Two indices:</p>
+<p>NDWI = (Green − SWIR2) / (Green + SWIR2) — for water discrimination</p>
+<p>NDVI = (NIR − Red) / (NIR + Red) — for vegetation and soil discrimination</p>
+<p>Then a decision tree built on the indices:</p>
+<p>text
+if NDVI &lt; 0 → Water
+else if NDVI &lt; 0.2 → Soil
+else → Vegetation
+The tree was applied to two images — one calibrated to reflectance, one corrected with FLAASH — and cross-validated against ground-truth ROIs.</p>
+<p>NDWI achieved perfect water classification in both images. NDVI was stronger on the FLAASH image, which makes sense — atmospheric correction brings the spectral values closer to physical reflectance, which is what NDVI was designed for.</p>
+<p>The final area computation was done two ways: pixel count times pixel area, and polygon-based area in ArcMap. Both returned 1,197,900 m² — a good sanity check that the raster and vector representations agree.</p>
+<p>08 — Sea Surface Temperature via Split-Window
+The last exercise retrieved Sea Surface Temperature (SST) from Landsat 8’s two thermal bands (10 and 11).</p>
+<p>The Split-Window algorithm exploits the fact that water vapor affects the two thermal bands differently. By using the difference between them, you can correct for atmospheric absorption without needing a full atmospheric profile.</p>
+<p>The pipeline:</p>
+<p>Convert DN to radiance using gain/offset from the MTL file</p>
+<p>Convert radiance to brightness temperature using the K1/K2 thermal constants</p>
+<p>Regress the two bands against ground-truth SST measurements</p>
+<p>python</p>
+<h1 id="brightness-temperature-from-thermal-band">Brightness temperature from thermal band</h1>
+<h1 id="t--k2--lnk1l--1---27315---in-celsius">T = K2 / ln(K1/L + 1) - 273.15  # in Celsius</h1>
+<p>Ground-truth control points (30 GCPs) were collected and their pixel values extracted from both bands. A quadratic regression between the two bands produced the final coefficients:</p>
+<p>text
+SST = A0 + A1·T10 + A2·(T10 − T11) + A3·(T10 − T11)²
+with:</p>
+<p>A0 = 13.85</p>
+<p>A1 = −0.00285</p>
+<p>A2 = −2.80</p>
+<p>A3 = 0.71</p>
+<p>Final RMSE: 0.359 °C. For a course project with 30 GCPs, that’s a tight fit — the Split-Window formulation captured nearly all the variance.</p>
+<p>The final map was classified by temperature range using ENVI’s Density Slice tool, producing a graduated color product suitable for the report.</p>
+<p>Takeaways
+Three things the whole lab reinforced.</p>
+<p>Correction matters more than classifier. The single biggest accuracy gain in Project 06 came from switching from Dark Object Subtraction to FLAASH — not from switching between MD and ML. The quality of the input data dominates the quality of the algorithm on top of it.</p>
+<p>Non-parametric methods are safer than they look. Maximum Likelihood assumes Gaussian classes. When that assumption breaks — as it does for heterogeneous land cover — Minimum Distance wins despite being conceptually simpler. Model assumptions are load-bearing.</p>
+<p>Metadata is not decoration. Every calibration in this lab traced back to a value in the MTL file. Read the header, understand the format, extract the constants. Everything downstream depends on it.</p>
 </div></article><!-- FOOTER WITH UNIFIED ICON SYSTEM (BOTTOM LEFT) --><footer class="mt-8 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-6 pb-4"><!-- BOTTOM LEFT: Unified Icon System --><div class="flex items-center gap-5"><!-- GitHub --><a href="https://github.com/Ali-Rezaali" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="text-slate-400 hover:text-emerald-400 transition-colors p-1"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg></a><!-- LinkedIn --><a href="https://www.linkedin.com/in/alirezaali/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="text-slate-400 hover:text-emerald-400 transition-colors p-1"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"></path></svg></a><!-- ORCID --><a href="https://orcid.org/0009-0008-9387-5661" target="_blank" rel="noopener noreferrer" aria-label="ORCID Record" class="text-slate-400 hover:text-emerald-400 transition-colors p-1"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.516.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.259 0 3.869-1.322 3.869-3.722 0-2.222-1.519-3.722-3.741-3.722h-2.425z"></path></svg></a><!-- Google Scholar (Fixed SVG Vector) --><a href="https://scholar.google.com/citations?user=e4ge-98AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar Profile" class="text-slate-400 hover:text-emerald-400 transition-colors p-1"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"></path></svg></a><!-- iNaturalist --><a href="https://www.inaturalist.org/people/alirezaali" target="_blank" rel="noopener noreferrer" aria-label="iNaturalist Profile" class="text-slate-400 hover:text-emerald-400 transition-colors p-1 inline-flex items-center justify-center"><span class="block w-5 h-5 bg-current" style="mask-image: url('/iNaturalist.svg'); mask-repeat: no-repeat; mask-size: contain; mask-position: center; -webkit-mask-image: url('/iNaturalist.svg'); -webkit-mask-repeat: no-repeat; -webkit-mask-size: contain; -webkit-mask-position: center;"></span></a><!-- Email / Contact --><a href="mailto:alirezaaligeo@gmail.com" aria-label="Send Email" class="text-slate-400 hover:text-emerald-400 transition-colors p-1"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg></a><!-- RSS Feed --><a href="/rss.xml" target="_blank" aria-label="RSS Feed" class="text-slate-400 hover:text-emerald-400 transition-colors p-1"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56m0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg></a></div><!-- BOTTOM RIGHT: Copyright & EPSG Code --><div class="text-xs font-mono text-slate-600 dark:text-slate-400 flex items-center gap-4"><span>© 2026 Ali Rezaali</span><span class="text-slate-700">|</span><span class="text-emerald-400/80">EPSG:4326</span></div></footer></div><!-- Toggle Script --><script>
       // Reads the user's stored theme (or system preference) and stamps it
       // onto <html>. Runs on initial load AND after every ClientRouter swap,

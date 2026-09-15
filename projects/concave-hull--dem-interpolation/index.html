@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="en" class="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Digital Elevation Model Interpolation — IDW, Kriging, and TIN Under Morphological Constraints | Projects</title><meta name="description" content="Geospatial researcher specializing in Earth Observation, GeoAI, and spatiotemporal modeling of environmental and urban hazard-risk."><!-- FAVICON RESTORED --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://ali-rezaali.github.io/projects/concave-hull--dem-interpolation/"><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;def09221f40d4d82ac5bffd3dfe8b779&quot;}"></script><!-- End Cloudflare Web Analytics --><!-- Theme Initialization (Prevents flicker) --><script>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'dark'; // Default dark mode
+      })();
+
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+      window.localStorage.setItem('theme', theme);
+    </script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CYDbzu1r.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.BE0NiwQO.css"></head><body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-200 min-h-screen"><div aria-hidden="true" class="pointer-events-none fixed inset-0 z-0 text-slate-900 dark:text-slate-100 opacity-[0.045] dark:opacity-[0.055]"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" class="w-full h-full"><g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M-60,50 C 180,10 380,90 660,55 S 1120,20 1500,70"></path><path d="M-60,120 C 160,160 400,80 680,130 S 1140,100 1500,150"></path><path d="M-60,190 C 200,230 420,160 700,210 S 1160,190 1500,230"></path><path d="M-60,260 C 220,290 440,230 720,270 S 1180,260 1500,290"></path><path d="M-60,325 C 180,355 380,295 660,335 S 1120,325 1500,355"></path><path d="M-60,395 C 200,425 400,365 680,405 S 1140,395 1500,425"></path><path d="M-60,460 C 220,490 420,430 700,470 S 1160,460 1500,490"></path><path d="M-60,530 C 200,560 400,500 680,540 S 1140,530 1500,560"></path><path d="M-60,595 C 180,625 380,565 660,605 S 1120,595 1500,625"></path><path d="M-60,665 C 200,695 400,635 680,675 S 1140,665 1500,695"></path><path d="M-60,730 C 220,760 420,700 700,740 S 1160,730 1500,760"></path><path d="M-60,800 C 180,830 380,770 660,810 S 1120,800 1500,830"></path><path d="M-60,865 C 200,895 400,835 680,875 S 1140,865 1500,895"></path><path d="M-60,930 C 180,960 380,900 660,940 S 1120,930 1500,960"></path></g></svg></div><div class="relative z-10 max-w-5xl mx-auto px-4 py-6"><!-- HEADER NAV --><header class="mb-12 border-b border-slate-200 dark:border-slate-800 pb-3"><div class="flex justify-between items-center"><!-- HEADER LOGO WITH SVG FILES (per-mode) --><a href="/" class="flex items-center gap-2.5 text-xl font-bold tracking-tight group shrink-0"><!-- Light mode logo — visible only when html is NOT .dark --><img src="/Logo%20-%20Light%20Mode.svg" alt="Ali Rezaali Logo" loading="lazy" decoding="async" class="h-[1.4em] w-auto block dark:hidden"><!-- Dark mode logo — visible only when html has .dark --><img src="/Logo%20-%20Dark%20Mode.svg" alt="Ali Rezaali Logo" loading="lazy" decoding="async" class="h-[1.4em] w-auto hidden dark:block"></a><!-- DESKTOP NAV --><nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300"><a href="/" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Home</a><a href="/projects" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Projects</a><a href="/publications" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Publications</a><a href="/blog" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">Blog</a><a href="/cv.pdf" target="_blank" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">CV</a><a href="/about" class="hover:text-emerald-500 dark:hover:text-emerald-400 transition">About</a><a href="/contact" class="hover:text-emerald-400 transition-colors">Contact</a><!-- DAY / NIGHT TOGGLE BUTTON --><button type="button" data-theme-toggle aria-label="Toggle Theme" class="p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 transition cursor-pointer"><!-- Sun Icon (Visible in Dark Mode) --><svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg><!-- Moon Icon (Visible in Light Mode) --><svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg></button></nav><!-- MOBILE CONTROLS --><div class="flex md:hidden items-center gap-1"><!-- DAY / NIGHT TOGGLE BUTTON (mobile) --><button type="button" data-theme-toggle aria-label="Toggle Theme" class="p-2 text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 rounded-lg transition cursor-pointer"><svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg><svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg></button><!-- MOBILE MENU (native <details>) --><details class="mobile-menu relative"><summary class="list-none p-2 cursor-pointer text-slate-600 dark:text-slate-300 hover:text-emerald-500 dark:hover:text-emerald-400 rounded-lg transition" aria-label="Open Menu"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></summary><nav class="absolute right-0 top-full mt-2 z-50 min-w-[200px] rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl p-2 flex flex-col gap-0.5"><a href="/" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Home</a><a href="/projects" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Projects</a><a href="/publications" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Publications</a><a href="/blog" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Blog</a><a href="/cv.pdf" target="_blank" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">CV</a><a href="/about" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">About</a><a href="/contact" class="px-3 py-2.5 rounded-lg text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-emerald-600 dark:hover:text-emerald-400 transition">Contact</a></nav></details></div></div></header><!-- Page Content --><article class="max-w-4xl mx-auto px-4 py-12"><!-- BACK BUTTON --><a href="/projects" class="inline-flex items-center gap-2 font-mono text-xs text-emerald-600 dark:text-emerald-400 hover:underline mb-8">← BACK TO PROJECTS</a><!-- HERO HEADER --><header class="mb-8"><div class="flex items-center gap-2 font-mono text-xs text-slate-500 mb-3"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 font-semibold uppercase">Coursework &amp; Labs</span><span>•</span><time>2025-01-27</time></div><h1 class="text-3xl sm:text-5xl font-black text-slate-900 dark:text-slate-100 tracking-tight leading-tight">Digital Elevation Model Interpolation — IDW, Kriging, and TIN Under Morphological Constraints</h1><p class="mt-4 text-lg text-slate-600 dark:text-slate-300 font-sans leading-relaxed">A systematic comparison of three interpolation families on 13,976 elevation points, with and without hard/soft breakline integration, benchmarked by RMSE.</p><!-- TAG CLOUD --><div class="mt-4 flex flex-wrap gap-2"><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#DEM</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#Interpolation</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#Kriging</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#IDW</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#TIN</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#ArcGIS Pro</span><span class="font-mono text-xs px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800">#Geostatistics</span></div></header><!-- MAIN FEATURED IMAGE --><div class="relative aspect-video w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 mb-10 shadow-2xl"><img src="/_astro/IDW%20(With%20Morphology).YGFWpG38_Zzh31w.avif" srcset="/_astro/IDW%20(With%20Morphology).YGFWpG38_1xproV.avif 400w, /_astro/IDW%20(With%20Morphology).YGFWpG38_1roHqU.avif 800w, /_astro/IDW%20(With%20Morphology).YGFWpG38_D39Av.avif 1200w, /_astro/IDW%20(With%20Morphology).YGFWpG38_Z1ndhYi.avif 1600w" alt="Digital Elevation Model Interpolation — IDW, Kriging, and TIN Under Morphological Constraints" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" loading="lazy" decoding="async" width="2243" height="1323" class="w-full h-full object-cover"></div><!-- MARKDOWN CONTENT BODY --><div class="prose dark:prose-invert prose-emerald max-w-none font-sans"><h2 id="overview">Overview</h2>
+<p>Producing a digital elevation model is one of the few geospatial tasks where the answer is genuinely not obvious until you test it. Three interpolation families — inverse distance weighting, ordinary kriging, and triangulated irregular networks — each claim to be the right tool. Each has a decade of literature behind it. They do not agree.</p>
+<p>This project runs all three on the same dataset, with identical training and test splits, and measures the difference. Then it runs each again, but this time feeding the interpolator information about the physical structure of the terrain — rivers, roads, buildings, cliffs — in the form of breaklines. The question is whether the additional structural knowledge actually improves the result, or whether some interpolation methods already handle morphology well enough on their own.</p>
+<h2 id="data-preparation">Data Preparation</h2>
+<p>The elevation dataset (Sample 17) contains 13,976 points in CAD format, with no coordinate system attached. They were imported into ArcGIS Pro, assigned X/Y from the first two fields and Z from the third via <strong>Display XY Data</strong>, and projected to a working CRS.</p>
+<p>Two classes of problem showed up immediately:</p>
+<ul>
+<li><strong>Spatial outliers</strong> — points located far outside the main cluster, which would have forced interpolators to extrapolate over empty space. Removed with a Lasso selection on the point cloud, followed by Inverse Selection and delete.</li>
+<li><strong>Vertical outliers</strong> — points at elevations implausible relative to neighbors. Removed by filtering against the local elevation distribution.</li>
+</ul>
+<p>After cleanup, the working set was split 70/30 into training and test data using <strong>Subset Features</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Training: 13,976 × 0.7 = 9,783 points</span></span>
+<span class="line"><span>Test:     13,976 × 0.3 = 4,192 points</span></span></code></pre>
+<p>The split was random. This matters for the interpretation of the TIN results later, and it’s worth flagging as a methodological caveat.</p>
+<h2 id="defining-the-working-boundary">Defining the Working Boundary</h2>
+<p>Interpolation inside a concave-shaped point cloud requires a concave boundary. A convex hull would have added large triangles of empty space along the coastline and the bay, and every point inside those empty triangles would have been interpolated from a small number of distant controls.</p>
+<p>I computed the concave hull in Python using <code>alphashape</code>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> geopandas </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> gpd</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> alphashape</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">gdf </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gpd.read_file(</span><span style="color:#9ECBFF">'Elevation Data (Sample 17).shp'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">points </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> []</span></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> geom </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> gdf.geometry:</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> geom.geom_type </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'Point'</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">        points.append((geom.x, geom.y))</span></span>
+<span class="line"><span style="color:#F97583">    elif</span><span style="color:#E1E4E8"> geom.geom_type </span><span style="color:#F97583">==</span><span style="color:#9ECBFF"> 'MultiPoint'</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">        for</span><span style="color:#E1E4E8"> point </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> geom.geoms:</span></span>
+<span class="line"><span style="color:#E1E4E8">            points.append((point.x, point.y))</span></span>
+<span class="line"><span style="color:#6A737D">    # ... Polygon and MultiPolygon handled similarly</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">alpha_shape </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> alphashape.alphashape(points, </span><span style="color:#FFAB70">alpha</span><span style="color:#F97583">=</span><span style="color:#79B8FF">0.01</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">hull_gdf </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> gpd.GeoDataFrame({</span><span style="color:#9ECBFF">'geometry'</span><span style="color:#E1E4E8">: [alpha_shape]}, </span><span style="color:#FFAB70">crs</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">gdf.crs)</span></span>
+<span class="line"><span style="color:#E1E4E8">hull_gdf.to_file(</span><span style="color:#9ECBFF">'concave_hull_output.shp'</span><span style="color:#E1E4E8">)</span></span></code></pre>
+<p>The <code>alpha</code> parameter controls how tightly the boundary hugs the point cloud. <code>alpha=0.01</code> was chosen after testing several values — lower values produce a hull that follows every indent in the point distribution; higher values converge toward the convex hull. 0.01 preserved the bay shape without fragmenting the boundary into multiple components.</p>
+<p>The resulting concave hull was buffered and smoothed in ArcGIS Pro so that it could be used as a clipping mask for all subsequent raster outputs. Every interpolator then produced a raster, clipped to this boundary.</p>
+<h2 id="morphological-features">Morphological Features</h2>
+<p>Two classes of breaklines were extracted from the accompanying CAD layers:</p>
+<p><strong>Hard Breaklines</strong> — abrupt changes in slope or elevation. Includes:</p>
+<ul>
+<li>Layer 8 (roads, tunnels, bridges, overpasses, roundabouts)</li>
+<li>Layer 10 (walls, wire fences, hedges)</li>
+<li>Layer 14 (highways)</li>
+<li>Layer 15 (streets, alleys)</li>
+<li>Layer 47 (sand dunes)</li>
+</ul>
+<p><strong>Soft Breaklines</strong> — gradual transitions. Includes:</p>
+<ul>
+<li>Layer 1 (orchards, single palm trees)</li>
+<li>Layer 2 (agricultural land)</li>
+<li>Layer 18 (water bodies)</li>
+<li>Layer 19 (canals, streams)</li>
+<li>Layer 21 (marshes, swamps)</li>
+</ul>
+<p>Each vector layer was converted to points with <strong>Feature Vertices to Points</strong> and merged with the training dataset as additional control points. The merged set was then used to run each interpolator a second time.</p>
+<p>One detail that matters: when merging, the Z value must be taken from the <code>Shape.Z</code> field, not the third numerical field. Line features converted to points do not carry a third field, so any script that reads “the third field” silently produces nothing useful. This cost a full re-run to catch.</p>
+<h2 id="idw--inverse-distance-weighting">IDW — Inverse Distance Weighting</h2>
+<p>IDW assigns each unknown location a weighted average of nearby control points, with weight proportional to the inverse of distance raised to a power <code>p</code>. Higher <code>p</code> emphasizes nearer points; lower <code>p</code> treats all points in the search radius more equally.</p>
+<p>Eight power values were tested, from 0 to 30:</p>
+<table>
+<thead>
+<tr>
+<th>Power</th>
+<th>RMSE (no morphology)</th>
+<th>RMSE (with morphology)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>4.346</td>
+<td>3.980</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>4.346</td>
+<td>3.980</td>
+</tr>
+<tr>
+<td>3.0</td>
+<td>3.182</td>
+<td>3.157</td>
+</tr>
+<tr>
+<td>5.0</td>
+<td>3.277</td>
+<td>3.257</td>
+</tr>
+<tr>
+<td>8.0</td>
+<td>3.512</td>
+<td>3.457</td>
+</tr>
+<tr>
+<td>14.0</td>
+<td>3.778</td>
+<td>3.696</td>
+</tr>
+<tr>
+<td>30.0</td>
+<td>4.012</td>
+<td>3.912</td>
+</tr>
+</tbody>
+</table>
+<p>Power 0 is undefined in ArcGIS Pro — it returns a flat average rather than a distance-weighted surface, which is why the row is empty.</p>
+<p>Two patterns emerge:</p>
+<ol>
+<li><strong>Power 3 is optimal</strong> for this dataset. Error drops from 4.35 at <code>p = 1</code> to 3.18 at <code>p = 3</code>, then rises again as <code>p</code> increases toward 30. Very high power effectively reduces the interpolation to nearest-neighbor, which introduces discontinuities.</li>
+<li><strong>Morphological features help consistently</strong>, but modestly. The improvement is largest at low <code>p</code> (from 4.35 to 3.98) and smallest at <code>p = 3</code> (from 3.18 to 3.16). At higher powers the model already trusts individual nearby points more, so the additional breakline information has less room to influence the surface.</li>
+</ol>
+<p>Visually, the difference between the two runs is striking. Without morphology, roads and river channels are smoothed over. With morphology, they emerge as ridges and depressions in the elevation surface — physically correct, and impossible to recover from elevation points alone.</p>
+<p><img alt="IDW interpolation across power values without morphological constraints" loading="lazy" decoding="async" width="2230" height="1330" src="/_astro/IDW.CSIfOA22_Z1hvuin.webp" srcset=""></p>
+<p><img alt="IDW interpolation across power values with hard and soft breaklines merged as additional control points" loading="lazy" decoding="async" width="2243" height="1323" src="/_astro/IDW%20(With%20Morphology).YGFWpG38_Qhpp8.webp" srcset=""></p>
+<h2 id="kriging--ordinary-kriging">Kriging — Ordinary Kriging</h2>
+<p>Kriging is a geostatistical interpolator that models spatial autocorrelation explicitly through a semivariogram. Unlike IDW, it does not assume that influence decays as a fixed power of distance — it estimates the decay from the data.</p>
+<p>Five semivariogram models were tested:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>RMSE (no morphology)</th>
+<th>RMSE (with morphology)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Spherical</td>
+<td>4.77</td>
+<td>2.43</td>
+</tr>
+<tr>
+<td>Circular</td>
+<td>4.07</td>
+<td>4.29</td>
+</tr>
+<tr>
+<td>Linear</td>
+<td>4.72</td>
+<td>2.63</td>
+</tr>
+<tr>
+<td>Exponential</td>
+<td>2.22</td>
+<td>2.44</td>
+</tr>
+<tr>
+<td>Gaussian</td>
+<td>4.68</td>
+<td>3.92</td>
+</tr>
+</tbody>
+</table>
+<p>Two findings worth unpacking.</p>
+<p><strong>Without morphology, Exponential is the clear winner at RMSE 2.22.</strong> This is the best single result across all three interpolation families. The Exponential semivariogram model assumes spatial correlation decays quickly with distance and then flattens out — a good fit for the undulating terrain of the study area.</p>
+<p><strong>With morphology, the picture inverts.</strong> Exponential accuracy degrades slightly (2.22 → 2.44), while Spherical improves dramatically (4.77 → 2.43). The breaklines add sharp-edged constraints, which the Exponential model interprets as noise because its correlation structure is smooth. The Spherical model has a finite range and a more abrupt transition at the sill, which suits the constrained surface better.</p>
+<p>The safest general recommendation for a first pass on this kind of terrain would be <strong>Exponential without morphology</strong> — it produces the lowest RMSE, and its errors are smooth and predictable. Adding morphology is justified only if the sharp features (roads, rivers) need to be visible in the final product, in which case Spherical is a better choice even if its raw RMSE is slightly higher.</p>
+<p><img alt="Kriging with five semivariogram models, without morphological constraints" loading="lazy" decoding="async" width="2913" height="868" src="/_astro/Kriging.CmhV5x-r_Z1QvJ9I.webp" srcset=""></p>
+<p><img alt="Kriging with five semivariogram models and morphological constraints added as additional control points" loading="lazy" decoding="async" width="2917" height="844" src="/_astro/Kriging%20(With%20Morphology).jpoc6SZp_ZHYpR7.webp" srcset=""></p>
+<h2 id="tin--triangulated-irregular-network">TIN — Triangulated Irregular Network</h2>
+<p>A TIN is a vector interpolator: it connects control points into a mesh of triangles and stores elevation per vertex. Unlike IDW and Kriging, it has no cell size to tune and no semivariogram to fit. Its behavior is determined entirely by how the input points are connected.</p>
+<table>
+<thead>
+<tr>
+<th>Configuration</th>
+<th>RMSE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TIN without morphology</td>
+<td>2.82</td>
+</tr>
+<tr>
+<td>TIN with morphology</td>
+<td>3.03</td>
+</tr>
+</tbody>
+</table>
+<p>The plain TIN beats every raster method except Kriging Exponential. Adding morphology <strong>degrades</strong> accuracy — the reverse of what happens with IDW.</p>
+<p>Two explanations are plausible, and both are worth stating:</p>
+<ol>
+<li><strong>Hard breaklines force abrupt facet boundaries</strong> that TIN already handles naturally. A TIN built from elevation points alone will already form sharp edges at ridges and valleys because the triangle geometry is data-driven. Explicit breakline constraints can over-sharpen these edges and introduce spurious steps.</li>
+<li><strong>Random test split bias.</strong> The 30% test points are drawn at random, not strategically. Some fall on flat terrain where all methods perform equally; a few fall near sharp features where a breakline-constrained TIN might deviate more. With only 4,192 test points, this sampling effect is not fully averaged out.</li>
+</ol>
+<p>The report’s honest recommendation is that a manually selected test set — points placed specifically on ridges, valleys, and flat areas — would give a cleaner comparison. That is future work, not something this exercise could settle.</p>
+<p><img alt="TIN interpolated surface — vector mesh triangulated directly from control points" loading="lazy" decoding="async" width="2229" height="803" src="/_astro/TIN.BHDbGkgH_GwO8r.webp" srcset=""></p>
+<h2 id="comparison-and-final-recommendation">Comparison and Final Recommendation</h2>
+<p>Aggregating the best configuration from each family:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Best Config</th>
+<th>RMSE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IDW</td>
+<td>p = 3, with morphology</td>
+<td>3.157</td>
+</tr>
+<tr>
+<td>TIN</td>
+<td>no morphology</td>
+<td>2.82</td>
+</tr>
+<tr>
+<td>Kriging</td>
+<td>Exponential, no morphology</td>
+<td><strong>2.22</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Kriging with an Exponential semivariogram and no morphological constraints produces the lowest RMSE on this dataset, and its visual output is the closest to a physically plausible surface. The final recommendation for this site is Kriging Exponential. TIN is a reasonable second choice if a vector representation is required. IDW is the fastest to run and produces acceptable results, but its accuracy ceiling is measurably higher than the other two.</p>
+<h2 id="takeaways">Takeaways</h2>
+<p><strong>Interpolation method choice dominates morphological input.</strong> The RMSE spread between the best and worst methods (2.22 vs. 4.77) is more than double the spread between with-morphology and without (e.g., IDW improvement: 0.19). Picking the right semivariogram model matters more than adding constraint data.</p>
+<p><strong>Morphology is not a free improvement.</strong> It helped IDW consistently, helped Kriging selectively, and hurt TIN. The physical intuition that “more accurate input → more accurate output” is not reliable here — the interpolator’s internal assumptions interact with the added constraints in ways that are method-specific.</p>
+<p><strong>Error metrics are necessary but not sufficient.</strong> The RMSE numbers do not capture that the with-morphology IDW surface <em>looks</em> correct — roads and rivers visible as ridges and depressions — while the no-morphology variant smooths them into oblivion. Visual inspection of the final surface, cross-checked against the actual terrain, remains part of the evaluation.</p>
+</div></article><!-- FOOTER WITH UNIFIED ICON SYSTEM (BOTTOM LEFT) --><footer class="mt-8 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row justify-between items-center gap-6 pb-4"><!-- BOTTOM LEFT: Unified Icon System --><div class="flex items-center gap-5"><!-- GitHub --><a href="https://github.com/Ali-Rezaali" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="text-slate-400 hover:text-emerald-400 transition-colors p-1"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg></a><!-- LinkedIn --><a href="https://www.linkedin.com/in/alirezaali/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="text-slate-400 hover:text-emerald-400 transition-colors p-1"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"></path></svg></a><!-- ORCID --><a href="https://orcid.org/0009-0008-9387-5661" target="_blank" rel="noopener noreferrer" aria-label="ORCID Record" class="text-slate-400 hover:text-emerald-400 transition-colors p-1"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.516.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c2.259 0 3.869-1.322 3.869-3.722 0-2.222-1.519-3.722-3.741-3.722h-2.425z"></path></svg></a><!-- Google Scholar (Fixed SVG Vector) --><a href="https://scholar.google.com/citations?user=e4ge-98AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar Profile" class="text-slate-400 hover:text-emerald-400 transition-colors p-1"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"></path></svg></a><!-- iNaturalist --><a href="https://www.inaturalist.org/people/alirezaali" target="_blank" rel="noopener noreferrer" aria-label="iNaturalist Profile" class="text-slate-400 hover:text-emerald-400 transition-colors p-1 inline-flex items-center justify-center"><span class="block w-5 h-5 bg-current" style="mask-image: url('/iNaturalist.svg'); mask-repeat: no-repeat; mask-size: contain; mask-position: center; -webkit-mask-image: url('/iNaturalist.svg'); -webkit-mask-repeat: no-repeat; -webkit-mask-size: contain; -webkit-mask-position: center;"></span></a><!-- Email / Contact --><a href="mailto:alirezaaligeo@gmail.com" aria-label="Send Email" class="text-slate-400 hover:text-emerald-400 transition-colors p-1"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg></a><!-- RSS Feed --><a href="/rss.xml" target="_blank" aria-label="RSS Feed" class="text-slate-400 hover:text-emerald-400 transition-colors p-1"><svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20 5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56m0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"></path></svg></a></div><!-- BOTTOM RIGHT: Copyright & EPSG Code --><div class="text-xs font-mono text-slate-600 dark:text-slate-400 flex items-center gap-4"><span>© 2026 Ali Rezaali</span><span class="text-slate-700">|</span><span class="text-emerald-400/80">EPSG:4326</span></div></footer></div><!-- Toggle Script --><script>
+      // Reads the user's stored theme (or system preference) and stamps it
+      // onto <html>. Runs on initial load AND after every ClientRouter swap,
+      // so navigating between pages never overrides the user's choice.
+      const applyTheme = () => {
+        const theme = (typeof localStorage !== 'undefined' && localStorage.getItem('theme'))
+          || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      };
+
+      const initToggle = () => {
+        document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+          if (btn.dataset.toggleInit === '1') return;
+          btn.dataset.toggleInit = '1';
+          btn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+          });
+        });
+      };
+
+      applyTheme();
+      initToggle();
+
+      // Re-apply theme after each ClientRouter navigation, because the
+      // incoming <html class="dark"> from the new page would otherwise
+      // override the user's saved preference.
+      document.addEventListener('astro:after-swap', () => {
+        applyTheme();
+        initToggle();
+      });
+    </script></body></html>
